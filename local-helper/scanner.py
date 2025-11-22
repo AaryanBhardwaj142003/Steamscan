@@ -111,7 +111,7 @@ def main():
         return
 
     # TODO: Replace with actual backend URL
-    backend_url = "http://localhost:5000/api/specs" 
+    backend_url = "https://steamscan.onrender.com/api/specs" 
     
     try:
         response = requests.post(backend_url, json=specs)
@@ -126,7 +126,8 @@ def main():
                 print("Opening browser to save report...")
                 import webbrowser
                 # Open a special URL that saves the ID to localStorage
-                webbrowser.open(f"http://localhost:5173/save-report/{report_id}")
+                webbrowser.open(f"https://steamscan.vercel.app/save-report/{report_id}")
+
         else:
             print(f"Failed to send report. Status code: {response.status_code}")
             print("Response:", response.text)
