@@ -9,8 +9,9 @@ router.post('/', async (req, res) => {
     try {
         const report = new SystemReport(req.body);
         await report.save();
-        res.json({ success: true, id: report._id });
+        res.json({ success: true, reportId: report._id });
     } catch (error) {
+        console.error('Error saving report:', error);
         res.status(500).json({ error: 'Failed to save report' });
     }
 });
